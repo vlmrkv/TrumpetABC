@@ -10,27 +10,32 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fingerings: TextView
     private lateinit var tones: TextView
     private lateinit var notesCards: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fingerings = findViewById(R.id.toFingerings)
-        tones = findViewById(R.id.toTones)
-        notesCards = findViewById(R.id.toNotesCards)
+        initViews()
 
         fingerings.setOnClickListener {
-            val intent = Intent(this, FingeringsActivity::class.java)
+            val intent = FingeringsActivity.newIntent(this)
             startActivity(intent)
         }
 
         tones.setOnClickListener {
-            val intent = Intent(this, TonesActivity::class.java)
+            val intent = TonesActivity.newIntent(this)
             startActivity(intent)
         }
 
         notesCards.setOnClickListener {
-            val intent = Intent(this, NotesCardActivity::class.java)
+            val intent = NotesCardActivity.newIntent(this)
             startActivity(intent)
         }
+    }
+
+    private fun initViews() {
+        fingerings = findViewById(R.id.toFingerings)
+        tones = findViewById(R.id.toTones)
+        notesCards = findViewById(R.id.toNotesCards)
     }
 }

@@ -7,6 +7,7 @@
     <string name="minor_scale_header">Minor \n tone:</string>
     <string name="image_of_the_note">Image of the note</string>
     <string name="play_button">Play button</string>
+    <string name="fingerings_description">fingerings</string>
 
     <string-array name="major_tones">
         <item>C-dur</item>

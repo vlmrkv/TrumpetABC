@@ -1,6 +1,7 @@
 package com.dekram.trumpetabc
 
 import android.content.Context
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ class NotesCardActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var tabs: TabLayout
+
     private val notesNames = listOf(
         "G#0", "A0", "A#0", "H0", "C1",
         "C#1", "D1", "D#1", "E1", "F1",
@@ -30,12 +32,22 @@ class NotesCardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes_card)
-        viewPager = findViewById(R.id.view_pager)
-        tabs = findViewById(R.id.tabs)
+        initViews()
         viewPager.adapter = PagerAdapter(this, notesNames)
         TabLayoutMediator(tabs, viewPager) { tabs, position ->
             tabs.text = notesNames[position]
         }.attach()
+    }
+
+    private fun initViews() {
+        viewPager = findViewById(R.id.view_pager)
+        tabs = findViewById(R.id.tabs)
+    }
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, NotesCardActivity::class.java)
+        }
     }
 
 }

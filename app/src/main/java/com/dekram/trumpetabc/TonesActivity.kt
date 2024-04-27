@@ -1,5 +1,7 @@
 package com.dekram.trumpetabc
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,9 +23,7 @@ class TonesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         setContentView(R.layout.activity_tones)
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
 
-        tonesViewImage = findViewById(R.id.tones)
-        minorSpinner = findViewById(R.id.minor_spinner)
-        majorSpinner = findViewById(R.id.major_spinner)
+        initViews()
 
         ArrayAdapter.createFromResource(
             this,
@@ -47,6 +47,12 @@ class TonesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         majorSpinner.onItemSelectedListener = this
 
+    }
+
+    private fun initViews() {
+        tonesViewImage = findViewById(R.id.tones)
+        minorSpinner = findViewById(R.id.minor_spinner)
+        majorSpinner = findViewById(R.id.major_spinner)
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -98,5 +104,10 @@ class TonesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         return
     }
 
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, TonesActivity::class.java)
+        }
+    }
 
 }

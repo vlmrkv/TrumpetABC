@@ -1,4 +1,4 @@
-package com.dekram.trumpetabc
+package com.dekram.trumpetabc.views
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import com.dekram.trumpetabc.R
 
 class TonesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 

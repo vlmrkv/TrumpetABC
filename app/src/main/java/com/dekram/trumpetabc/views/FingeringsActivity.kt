@@ -1,9 +1,10 @@
-package com.dekram.trumpetabc
+package com.dekram.trumpetabc.views
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dekram.trumpetabc.R
 
 class FingeringsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

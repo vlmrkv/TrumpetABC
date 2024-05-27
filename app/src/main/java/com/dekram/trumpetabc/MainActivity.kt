@@ -1,9 +1,11 @@
 package com.dekram.trumpetabc
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.dekram.trumpetabc.views.FingeringsActivity
+import com.dekram.trumpetabc.views.NotesCardActivity
+import com.dekram.trumpetabc.views.TonesActivity
 
 class MainActivity : AppCompatActivity() {
 

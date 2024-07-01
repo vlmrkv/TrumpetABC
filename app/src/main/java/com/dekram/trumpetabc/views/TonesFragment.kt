@@ -1,8 +1,6 @@
 package com.dekram.trumpetabc.views
 
-import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -11,9 +9,10 @@ import android.widget.ImageView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.fragment.app.Fragment
 import com.dekram.trumpetabc.R
 
-class TonesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class TonesFragment : Fragment(R.layout.fragment_tones), AdapterView.OnItemSelectedListener {
 
     private lateinit var tonesViewImage: ImageView
     private lateinit var minorSpinner: Spinner
@@ -21,46 +20,51 @@ class TonesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tones)
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         initViews()
-
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.minor_tones,
-            android.R.layout.simple_spinner_item
-        ).also { minorAdapter ->
-            minorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            minorSpinner.adapter = minorAdapter
+        context?.let {
+            ArrayAdapter.createFromResource(
+                it,
+                R.array.minor_tones,
+                android.R.layout.simple_spinner_item
+            ).also { minorAdapter ->
+                minorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                minorSpinner.adapter = minorAdapter
+            }
         }
 
         minorSpinner.onItemSelectedListener = this
 
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.major_tones,
-            android.R.layout.simple_spinner_item
-        ).also { majorAdapter ->
-            majorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            majorSpinner.adapter = majorAdapter
+        context?.let {
+            ArrayAdapter.createFromResource(
+                it,
+                R.array.major_tones,
+                android.R.layout.simple_spinner_item
+            ).also { majorAdapter ->
+                majorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                majorSpinner.adapter = majorAdapter
+            }
         }
 
         majorSpinner.onItemSelectedListener = this
-
     }
 
     private fun initViews() {
-        tonesViewImage = findViewById(R.id.tones)
-        minorSpinner = findViewById(R.id.minor_spinner)
-        majorSpinner = findViewById(R.id.major_spinner)
+        tonesViewImage = view?.findViewById(R.id.tones) as ImageView
+        minorSpinner = view?.findViewById(R.id.minor_spinner) as Spinner
+        majorSpinner = view?.findViewById(R.id.major_spinner) as Spinner
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
         if (parent?.id == R.id.minor_spinner) {
             val minorArray = resources.getStringArray(R.array.minor_tones)
-            when(minorArray.indexOf(minorArray[position])) {
+            when (minorArray.indexOf(minorArray[position])) {
                 0 -> tonesViewImage.setImageResource(R.drawable.tones_a_moll)
                 1 -> tonesViewImage.setImageResource(R.drawable.tones_e_moll)
                 2 -> tonesViewImage.setImageResource(R.drawable.tones_h_moll)
@@ -81,7 +85,7 @@ class TonesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         if (parent?.id == R.id.major_spinner) {
             val majorArray = resources.getStringArray(R.array.major_tones)
-            when(majorArray.indexOf(majorArray[position])) {
+            when (majorArray.indexOf(majorArray[position])) {
                 0 -> tonesViewImage.setImageResource(R.drawable.tones_c_dur)
                 1 -> tonesViewImage.setImageResource(R.drawable.tones_g_dur)
                 2 -> tonesViewImage.setImageResource(R.drawable.tones_d_dur)
@@ -103,12 +107,6 @@ class TonesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         return
-    }
-
-    companion object {
-        fun newIntent(context: Context): Intent {
-            return Intent(context, TonesActivity::class.java)
-        }
     }
 
 }

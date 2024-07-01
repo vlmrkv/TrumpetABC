@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/splash_fragment"
+        android:name="com.dekram.trumpetabc.views.SplashFragment"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_splash_fragment_to_home_fragment"
+            app:popUpTo="@navigation/app_navigation"
+            app:popUpToInclusive="true"
+            app:destination="@id/home_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.dekram.trumpetabc.views.HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_home_fragment_to_fingeringsFragment"
+            app:destination="@id/fingeringsFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_tonesFragment"
+            app:destination="@id/tonesFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_notesCardFragment"
+            app:destination="@id/notesCardFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fingeringsFragment"
+        android:name="com.dekram.trumpetabc.views.FingeringsFragment"
+        android:label="fragment_fingerings"
+        tools:layout="@layout/fragment_fingerings" />
+    <fragment
+        android:id="@+id/tonesFragment"
+        android:name="com.dekram.trumpetabc.views.TonesFragment"
+        android:label="fragment_tones"
+        tools:layout="@layout/fragment_tones" />
+    <fragment
+        android:id="@+id/notesCardFragment"
+        android:name="com.dekram.trumpetabc.views.NotesCardFragment"
+        android:label="fragment_notes_card"
+        tools:layout="@layout/fragment_notes_card" />
+</navigation>

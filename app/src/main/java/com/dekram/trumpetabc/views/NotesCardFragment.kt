@@ -1,22 +1,22 @@
 package com.dekram.trumpetabc.views
 
 import android.content.Context
-import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import com.dekram.trumpetabc.R
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.dekram.trumpetabc.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class NotesCardActivity : AppCompatActivity() {
+class NotesCardFragment : Fragment(R.layout.fragment_notes_card) {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var tabs: TabLayout
@@ -30,25 +30,19 @@ class NotesCardActivity : AppCompatActivity() {
         "A2", "A#2", "H2", "C3"
     )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notes_card)
-        initViews()
-        viewPager.adapter = PagerAdapter(this, notesNames)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        initViews(view)
+        viewPager.adapter = PagerAdapter(requireContext(), notesNames)
         TabLayoutMediator(tabs, viewPager) { tabs, position ->
             tabs.text = notesNames[position]
         }.attach()
     }
 
-    private fun initViews() {
-        viewPager = findViewById(R.id.view_pager)
-        tabs = findViewById(R.id.tabs)
-    }
-
-    companion object {
-        fun newIntent(context: Context): Intent {
-            return Intent(context, NotesCardActivity::class.java)
-        }
+    private fun initViews(view: View) {
+        viewPager = view.findViewById(R.id.view_pager) as ViewPager2
+        tabs = view.findViewById(R.id.tabs) as TabLayout
     }
 
 }
@@ -59,10 +53,10 @@ class PagerAdapter(private val context: Context, private val notesNames: List<St
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageHolder =
         PageHolder(LayoutInflater.from(context).inflate(R.layout.item_card, parent, false))
 
-    override fun onBindViewHolder(holder: PageHolder, position: Int) {
-        holder.notesCard.text = notesNames[position]
+    override fun onBindViewHolder(holder: PageHolder, positionId: Int) {
+        holder.notesCard.text = notesNames[positionId]
         holder.notesView.setImageResource(
-            when (position) {
+            when (positionId) {
                 0 -> R.drawable.nc1_gis0
                 1 -> R.drawable.nc2_a0
                 2 -> R.drawable.nc3_ais0
@@ -127,7 +121,7 @@ class PagerAdapter(private val context: Context, private val notesNames: List<St
             R.raw.sounds_28_h2,
             R.raw.sounds_29_c3
         )
-        val mp3file = mp3files[position]
+        val mp3file = mp3files[positionId]
         holder.bind(mp3file)
     }
 
@@ -135,7 +129,7 @@ class PagerAdapter(private val context: Context, private val notesNames: List<St
 
 
     inner class PageHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val notesCard: TextView = itemView.findViewById(R.id.notes_card)
+        val notesCard: TextView = itemView.findViewById(R.id.action_from_home_to_notescards)
         val notesView: ImageView = itemView.findViewById(R.id.notesView)
         private val playButton: ImageView = itemView.findViewById(R.id.play_button)
 

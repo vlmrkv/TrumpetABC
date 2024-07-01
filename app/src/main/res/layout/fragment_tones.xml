@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_lime"
+    android:background="@color/background_color"
     android:orientation="horizontal"
     android:padding="32dp"
-    tools:context=".views.TonesActivity">
+    tools:context=".views.TonesFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -29,9 +29,9 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:background="@drawable/old_paper"
-            android:paddingVertical="0dp"
-            android:paddingHorizontal="0dp"
             android:cropToPadding="false"
+            android:paddingHorizontal="0dp"
+            android:paddingVertical="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/tones_a_dur"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -42,19 +42,19 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_gravity="start"
             android:layout_marginStart="32dp"
-            android:orientation="horizontal"
-            android:layout_gravity="start">
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/minor_spinner_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/minor_scale_header"
-                android:lines="2"
                 android:fontFamily="@font/pangolin"
+                android:lines="2"
+                android:text="@string/minor_scale_header"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -65,6 +65,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
                 android:entries="@array/minor_tones"
+                android:popupBackground="@color/buttonColor"
                 android:theme="@style/spinnerTheme" />
 
         </LinearLayout>
@@ -72,10 +73,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:orientation="horizontal"
-            android:layout_gravity="end">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/major_spinner_header"
@@ -83,8 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/pangolin"
-                android:text="@string/major_scale_header"
                 android:lines="2"
+                android:text="@string/major_scale_header"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -95,6 +96,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
                 android:entries="@array/major_tones"
+                android:popupBackground="@color/buttonColor"
                 android:theme="@style/spinnerTheme" />
 
         </LinearLayout>

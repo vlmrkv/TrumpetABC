@@ -8,6 +8,11 @@
     <string name="minor_scale_header">Минорная \n тональность:</string>
     <string name="image_of_the_note">Изображение ноты</string>
     <string name="play_button">Кнопка проигрывания звука</string>
+    <string name="fingerings_description">Аппликатура</string>
+
+    <string name="fingerings_button_description">Кнопка раздела Аппликатура</string>
+    <string name="tones_button_description">Кнопка раздела Тональности</string>
+    <string name="notes_cards_button_description">Кнопка раздела Нотные карточки</string>
 
     <string-array name="major_tones">
         <item>До</item>

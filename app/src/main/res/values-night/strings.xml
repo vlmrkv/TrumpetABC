@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fingerings_description">Fingerings</string>
+    <string name="notes_cards_button_description">Notes cards button</string>
+    <string name="tones_button_description">Tones button</string>
+    <string name="fingerings_button_description">Fingerings button</string>
+</resources>

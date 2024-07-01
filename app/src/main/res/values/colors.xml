@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#FF5722</color>
-    <color name="secondaryColor">#EED293</color>
+    <color name="primaryColor">#99772E</color>
+    <color name="secondaryColor">#4B696C</color>
+    <color name="buttonColor">#ECCD8C</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="start_color">#000000</color>
-    <color name="end_color">#D3B53A</color>
-    <color name="green_lime">#88BE48</color>
-    <color name="coffee_milk">#EED293</color>
+    <color name="background_color">#568B90</color>
+    <color name="splash_background_color">#8AC24A</color>
 </resources>

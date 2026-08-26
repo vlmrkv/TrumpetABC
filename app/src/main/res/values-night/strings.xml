@@ -1,7 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="fingerings_description">Fingerings</string>
+    <string name="app_name" translatable="false">Trumpet ABC</string>
+    <string name="tunerButton">tuner</string>
+    <string name="tonesButton">tones</string>
+    <string name="note_s_cardsButton">note\'s cards</string>
+    <string name="major_scale_header">Major \n tone:</string>
+    <string name="minor_scale_header">Minor \n tone:</string>
+    <string name="image_of_the_note">Image of the note</string>
+    <string name="play_button">Play button</string>
+    <string name="tuner_description">Tuner</string>
+
     <string name="notes_cards_button_description">Notes cards button</string>
     <string name="tones_button_description">Tones button</string>
-    <string name="fingerings_button_description">Fingerings button</string>
+    <string name="tuner_button_description">Tuner button</string>
+    <string name="temp_banner">The tuner is under development.\nAn update will be available soon.</string>
+
+    <string-array name="major_tones">
+        <item>C-dur</item>
+        <item>G-dur</item>
+        <item>D-dur</item>
+        <item>A-dur</item>
+        <item>E-dur</item>
+        <item>H-dur</item>
+        <item>Fis-dur</item>
+        <item>Cis-dur</item>
+        <item>F-dur</item>
+        <item>B-dur</item>
+        <item>Es-dur</item>
+        <item>As-dur</item>
+        <item>Des-dur</item>
+        <item>Ges-dur</item>
+        <item>Ces-dur</item>
+    </string-array>
+
+    <string-array name="minor_tones">
+        <item>a-moll</item>
+        <item>e-moll</item>
+        <item>h-moll</item>
+        <item>fis-moll</item>
+        <item>cis-moll</item>
+        <item>gis-moll</item>
+        <item>dis-moll</item>
+        <item>ais-moll</item>
+        <item>d-moll</item>
+        <item>g-moll</item>
+        <item>c-moll</item>
+        <item>f-moll</item>
+        <item>b-moll</item>
+        <item>es-moll</item>
+        <item>as-moll</item>
+    </string-array>
 </resources>

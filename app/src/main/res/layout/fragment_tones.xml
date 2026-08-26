@@ -66,6 +66,7 @@
                 android:layout_gravity="center_vertical"
                 android:entries="@array/minor_tones"
                 android:popupBackground="@color/buttonColor"
+                android:backgroundTint="@color/black"
                 android:theme="@style/spinnerTheme" />
 
         </LinearLayout>
@@ -97,6 +98,7 @@
                 android:layout_gravity="center_vertical"
                 android:entries="@array/major_tones"
                 android:popupBackground="@color/buttonColor"
+                android:backgroundTint="@color/black"
                 android:theme="@style/spinnerTheme" />
 
         </LinearLayout>

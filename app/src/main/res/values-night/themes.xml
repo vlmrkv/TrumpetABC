@@ -20,4 +20,10 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="TabTheme">
+        <item name="android:fontFamily">@font/pangolin</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

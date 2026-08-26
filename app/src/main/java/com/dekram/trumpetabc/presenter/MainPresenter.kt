@@ -9,31 +9,23 @@ class MainPresenter(view: MainContract.View, dependencyInjector: DependencyInjec
     private val modelRepository = dependencyInjector.modelRepository()
     private var view: MainContract.View? = view
 
-    private fun loadMainActivity() {
-        //view?.showMainActivity()
-    }
-
-    fun loadFingerings() {
-        //view?.showFingeringsScreen()
-    }
-
-    override fun onDestroy() {
-        //this.view = null
-    }
-
     override fun onViewCreated() {
-        loadMainActivity()
+        view?.showMainActivity()
     }
 
     override fun onFingeringsButtonClicked() {
-        TODO("Not yet implemented")
+        view?.showFingeringsScreen()
     }
 
     override fun onTonesButtonClicked() {
-        TODO("Not yet implemented")
+        view?.showTonesScreen()
     }
 
     override fun onNotesCardsButtonClicked() {
-        TODO("Not yet implemented")
+        view?.showNotesCardsScreen()
+    }
+
+    override fun onDestroy() {
+        this.view = null
     }
 }

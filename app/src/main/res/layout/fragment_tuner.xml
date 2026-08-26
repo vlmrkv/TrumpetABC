@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:padding="32dp"
-    tools:context=".views.FingeringsFragment">
+    tools:context=".views.TunerFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -21,15 +21,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/fingerings_image"
+        <TextView
+            android:id="@+id/temp_banner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:background="@drawable/old_paper"
-            android:src="@drawable/tones_c_dur"
-            android:contentDescription="@string/fingerings_description" />
+            android:textAlignment="center"
+            android:fontFamily="@font/pangolin"
+            android:textSize="32sp"
+            android:text="@string/temp_banner"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/fingerings_image"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:background="@drawable/old_paper"-->
+<!--            android:src="@drawable/tones_c_dur"-->
+<!--            android:contentDescription="@string/tuner_description" />-->
 
     </androidx.cardview.widget.CardView>
 
